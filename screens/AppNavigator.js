@@ -24,7 +24,6 @@ function PMTabNavigator() {
         component={PMDashboard}
         options={{ headerShown: false }}
       />
-     
       <Tab.Screen 
         name="ProfileScreen" 
         component={ProfileScreen}
@@ -42,11 +41,6 @@ function PHTabNavigator() {
         component={PHDashboard}
         options={{ headerShown: false }}
       />
-      {/* <Tab.Screen 
-        name="TaskScreenPH" 
-        component={TaskScreenPH}
-        options={{ headerShown: false }}
-      /> */}
       <Tab.Screen 
         name="ProfileScreenPH" 
         component={ProfileScreenPH}
@@ -86,9 +80,15 @@ export default function AppNavigator() {
         />
         {userRole === 'PM' && (
           <Stack.Screen 
-            name="PMTabs" 
+            name="PM Task Board" 
             component={PMTabNavigator}
-            options={{ headerShown: false }} 
+            options={{ 
+              headerShown: true,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 24, // Adjust the size as needed
+              },
+            }} 
           />
         )}
         {userRole === 'PH' && (

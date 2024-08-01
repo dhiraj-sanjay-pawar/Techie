@@ -60,7 +60,7 @@ export default function LoginScreen({ navigation }) {
 
         navigation.reset({
           index: 0,
-          routes: [{ name: user.Role === 'PM' ? 'PMTabs' : 'PHTabs' }],
+          routes: [{ name: user.Role === 'PM' ? 'PM Task Board' : 'PHTabs' }],
         });
       } else {
         Alert.alert('Login Failed', data.message);

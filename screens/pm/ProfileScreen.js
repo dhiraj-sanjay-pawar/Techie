@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProfileScreen() {
@@ -45,20 +45,23 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Profile Screen</Text>
-      <Text style={styles.label}>Username:</Text>
-      <Text style={styles.value}>{userDetails.Username}</Text>
-      <Text style={styles.label}>Full Name:</Text>
-      <Text style={styles.value}>{userDetails.Name}</Text>
-      <Text style={styles.label}>Email:</Text>
-      <Text style={styles.value}>{userDetails.Email}</Text>
-      <Text style={styles.label}>Mobile Number:</Text>
-      <Text style={styles.value}>{userDetails.MobileNumber}</Text>
-      <Text style={styles.label}>Role:</Text>
-      <Text style={styles.value}>{userDetails.Role}</Text>
-      <Text style={styles.label}>Registration Date:</Text>
-      <Text style={styles.value}>{userDetails.RegistrationDate}</Text>
-      {/* Add other user details as needed */}
+      <View style={styles.header}>
+        <Image source={require('../../assets/techspark.png')} style={styles.profileImage} />
+        <Text style={styles.username}>{userDetails.Name}</Text>
+      </View>
+      <View style={styles.detailsContainer}>
+        <Text style={styles.label}>Username:</Text>
+        <Text style={styles.value}>{userDetails.Username}</Text>
+        <Text style={styles.label}>Email:</Text>
+        <Text style={styles.value}>{userDetails.Email}</Text>
+        <Text style={styles.label}>Mobile Number:</Text>
+        <Text style={styles.value}>{userDetails.MobileNumber}</Text>
+        <Text style={styles.label}>Role:</Text>
+        <Text style={styles.value}>{userDetails.Role}</Text>
+        <Text style={styles.label}>Registration Date:</Text>
+        <Text style={styles.value}>{userDetails.RegistrationDate}</Text>
+        {/* Add other user details as needed */}
+      </View>
     </View>
   );
 }
@@ -67,22 +70,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  header: {
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    paddingVertical: 50, // Increased padding to increase height of black area
   },
-  title: {
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#fff',
+    marginTop: 20, // Increased top margin for the image
+  },
+  username: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: '#fff',
+    marginTop: 10,
+  },
+  detailsContainer: {
+    padding: 20,
   },
   label: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
+    color: '#333',
   },
   value: {
     fontSize: 16,
-    color: '#333',
+    color: '#666',
+    marginBottom: 10,
   },
 });
