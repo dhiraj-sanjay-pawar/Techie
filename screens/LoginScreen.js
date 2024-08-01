@@ -50,18 +50,17 @@ export default function LoginScreen({ navigation }) {
       const data = await response.json();
 
       if (data.status === 'success') {
-        const userRole = data.user.Role;
-        await AsyncStorage.setItem('loggedInUsername', loginID);
-        await AsyncStorage.setItem('userRole', userRole);
+        const user = data.user;
+        await AsyncStorage.setItem('loggedInUser', JSON.stringify(user));
         Toast.show({
           type: 'success',
           text1: 'Login Successful!',
-          text2: `Role: ${userRole}`,
+          text2: `Role: ${user.Role}`,
         });
 
         navigation.reset({
           index: 0,
-          routes: [{ name: userRole === 'PM' ? 'PMTabs' : 'PHTabs' }],
+          routes: [{ name: user.Role === 'PM' ? 'PMTabs' : 'PHTabs' }],
         });
       } else {
         Alert.alert('Login Failed', data.message);

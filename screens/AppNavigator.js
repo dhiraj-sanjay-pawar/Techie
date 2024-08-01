@@ -24,11 +24,7 @@ function PMTabNavigator() {
         component={PMDashboard}
         options={{ headerShown: false }}
       />
-      <Tab.Screen 
-        name="TaskScreen" 
-        component={TaskScreen}
-        options={{ headerShown: false }}
-      />
+     
       <Tab.Screen 
         name="ProfileScreen" 
         component={ProfileScreen}
@@ -46,11 +42,11 @@ function PHTabNavigator() {
         component={PHDashboard}
         options={{ headerShown: false }}
       />
-      <Tab.Screen 
+      {/* <Tab.Screen 
         name="TaskScreenPH" 
         component={TaskScreenPH}
         options={{ headerShown: false }}
-      />
+      /> */}
       <Tab.Screen 
         name="ProfileScreenPH" 
         component={ProfileScreenPH}
